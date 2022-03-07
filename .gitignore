@@ -2,7 +2,7 @@
 dist
 dist-ssr
 *.local
-
+.vscode/
 /cypress/videos/
 /cypress/screenshots/
 
