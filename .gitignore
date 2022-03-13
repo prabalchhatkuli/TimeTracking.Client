@@ -6,6 +6,7 @@ dist-ssr
 /cypress/videos/
 /cypress/screenshots/
 package-lock.json
+.env
 
 # Editor directories and files
 .vscode/*

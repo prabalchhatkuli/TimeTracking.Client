@@ -45,7 +45,7 @@
         methods: {
             async fetchForecast(){
                 try {
-                    let response = await axios.get('http://localhost:7069/api/WeatherForecast/GetWeather');
+                    let response = await axios.get(import.meta.env.VITE_API_SERVERPORT + '/api/WeatherForecast/GetWeather');
                     this.forecasts = response.data as Forecast[];
                 } catch (returnedError) {
                     this.error = returnedError as string;
