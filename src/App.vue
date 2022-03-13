@@ -4,7 +4,6 @@
             <div class="row d-flex d-md-block flex-nowrap wrapper">
                 <SideNavBar/>
                 <div id="nav-and-content">
-                    <TopNavBar/>
                     <div id="content">
                         <RouterView/>   
                     </div>                  
@@ -19,14 +18,12 @@
 
   import { defineComponent } from 'vue';
   import { RouterView } from "vue-router";
-  import TopNavBar from './components/modules/shared/TopNavBar.vue';
   import SideNavBar from './components/modules/shared/SideNavBar.vue';
 
 export default defineComponent({
   name : 'App',
   components : {
     RouterView,
-    TopNavBar,
     SideNavBar
   }
 })

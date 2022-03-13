@@ -1,10 +1,10 @@
 <template>
+  <TopNavBar :titleMenuName="titleMenuName"/>
     <div>
-        <h1>Weather Forecast</h1>
         <p>This component demonstrates fetching data from the backend server.</p>
-        <p v-if="!forecasts"><em>Loading...</em></p>
+        <p v-show="error">An error occured!</p>
 
-        <table class="table table-bordered table-striped" v-if="forecasts">
+        <table v-show="!error" v-if="forecasts" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>Date</th>
@@ -27,29 +27,34 @@
 
 <script lang="ts">
 
-import axios from 'axios';
-import { defineComponent } from 'vue';
-import type { Forecast } from "../../../models/Forecast";
+    import axios from 'axios';
+    import { defineComponent } from 'vue';
+    import type { Forecast } from "../../../models/Forecast";
+    import TopNavBar from '@/components/modules/shared/TopNavBar.vue';
 
-export default defineComponent({
-    name : 'FetchData',
-    data: () => ({
-        forecasts : [] as Forecast[],
-        error: "",
-    }),
-    methods: {
-        async fetchForecast(){
-            try {
-                let response = await axios.get('http://localhost:7069/api/WeatherForecast/GetWeather');
-                this.forecasts = response.data as Forecast[];
-            } catch (returnedError) {
-                this.error = returnedError as string;
+    export default defineComponent({
+        name : 'FetchData',
+        components : {
+            TopNavBar,
+        },
+        data: () => ({
+            forecasts : [] as Forecast[],
+            error: "",
+            titleMenuName : 'Weather Forecast'
+        }),
+        methods: {
+            async fetchForecast(){
+                try {
+                    let response = await axios.get('http://localhost:7069/api/WeatherForecast/GetWeather');
+                    this.forecasts = response.data as Forecast[];
+                } catch (returnedError) {
+                    this.error = returnedError as string;
+                }
             }
+        },
+        async mounted() {
+            await this.fetchForecast();
         }
-    },
-    async mounted() {
-        await this.fetchForecast();
-    }
-})
+    });
 
 </script>
