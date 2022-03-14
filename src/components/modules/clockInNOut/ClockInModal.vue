@@ -19,7 +19,7 @@
           </div>
 
         <div id="liveClock">
-          <label>Current Time : </label>
+          <label>Current Time</label>
           <ClockWidget/>
         </div>
 
@@ -37,6 +37,7 @@
     import {defineComponent} from 'vue';
     import Datepicker from 'vue3-datepicker';
     import ClockWidget from '../widgets/ClockWidget.vue';
+    import moment from 'moment';
 
 
     export default defineComponent({
@@ -47,7 +48,8 @@
       ClockWidget,
     },
     data : () => ({
-      today : new Date().toISOString().substring(0,10)
+      momentInstance: moment(),
+      today : moment.utc(new Date()).local().format().substring(0,10)
     }),
   });
 
