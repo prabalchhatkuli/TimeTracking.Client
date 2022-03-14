@@ -17,9 +17,6 @@
             <a class="list-group-item list-group-item-action py-2 ripple">
               <router-link :to="{ name: 'FetchData' }" class="nav-link" title="Weather Forecast">Weather Forecast</router-link>
             </a>
-            <a class="list-group-item list-group-item-action py-2 ripple">
-              <router-link :to="{ name: 'ClockIn' }" class="nav-link" title="Clock In">Clock In</router-link>
-            </a>
         </div>
     </div>
   </div>
@@ -30,7 +27,7 @@
     import { defineComponent } from 'vue';
     
     export default defineComponent({
-        name : 'SideNavBar'
+        name : 'SideNavBar',
     })
 </script>
 

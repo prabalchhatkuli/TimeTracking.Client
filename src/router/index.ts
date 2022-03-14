@@ -3,7 +3,7 @@ import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
 import Counter from "@/components/modules/counter/Counter.vue";
 import FetchData from "@/components/modules/weatherForecast/FetchData.vue";
-import ClockIn from "@/components/modules/clockInNOut/ClockIn.vue";
+import ClockInModal from "@/components/modules/clockInNOut/ClockInModal.vue";
 
 const routes = [
   {
@@ -29,7 +29,7 @@ const routes = [
   {
     path: "/ClockIn",
     name: "ClockIn",
-    component: ClockIn,
+    component: ClockInModal,
   },
 ]
 
