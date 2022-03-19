@@ -1,5 +1,5 @@
 <template>
-  <TopNavBar :titleMenuName="titleMenuName"/>
+<Default :titleMenuName="titleMenuName">
     <div>
         <p>This component demonstrates fetching data from the backend server.</p>
         <p v-show="error">An error occured!</p>
@@ -22,7 +22,9 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div>  
+</Default>  
+  
 </template>
 
 <script lang="ts">
@@ -30,12 +32,12 @@
     import axios from 'axios';
     import { defineComponent } from 'vue';
     import type { Forecast } from "../../../models/Forecast";
-    import TopNavBar from '@/components/modules/shared/TopNavBar.vue';
+    import Default from '../../../layout/Default.vue';
 
     export default defineComponent({
         name : 'FetchData',
         components : {
-            TopNavBar,
+            Default
         },
         data: () => ({
             forecasts : [] as Forecast[],
